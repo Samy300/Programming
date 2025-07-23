@@ -2,6 +2,7 @@ import os
 
 class MainReader:
     def __init__(self, file_name):
+        self.file_name = file_name
 
     def line_reader(self):
         if not os.path.exists(self.file_name):
