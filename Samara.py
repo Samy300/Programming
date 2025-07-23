@@ -1,21 +1,38 @@
 import os
 
-# Function to define the ANSi Colors
-def text_color(color: str):
-    colors = {
-        "green" : "\033[0;32m",
-        "blue": "\033[0;34m",
-        "red" : "\033[0;31m",
-        "white": "\033[0;37m"         
-        }
+Class MainReader:
+    def __init__(self, file_name):
 
-    def clr(func):
-        def wrapper(*args, **kwargs):
-            for line in func (*args, **kwargs):
-                yield f"{colors[color]}{line}\033[0m"
-            return wrapper
-    return color
+    def line_reader(self):
+        if not os.path.exists(self.file_name):
+            yield "Unaviable"
+            return
+        with open(self.file_name) as file:
+            for line in file:
+                yield line.strip()
+        
+    def play(self):
+        for line in self.line_generator():
+            print(line)
+    
+    @text_color("white"):
+    def line_generator(self):
+        return self.line_reader()
+    
+    def _concat(self, other,color_class):
+        output_file = "concatenated.txt"
+        with open(output_file, "w") as out:
+            for fname in (self.file_name, other.file_name):
+                if os.path.exists(fname):
+                    with open(fname) as f:
+                        out.writelines(f)
+        return color_class(output_file)
+    
+    def __add__(self, other):
+        return self.concat(other, color_class = self.__class__)
 
+    def __add__(self,other):
+        return self._concat(other, color_class=self.__class__)
 
 
 
