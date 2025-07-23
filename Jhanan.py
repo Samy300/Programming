@@ -1,6 +1,6 @@
 import os
 
-Class MainReader:
+class MainReader:
     def __init__(self, file_name):
 
     def line_reader(self):
