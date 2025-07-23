@@ -32,10 +32,6 @@ class MainReader:
     def __add__(self, other):
         return self.concat(other, color_class = self.__class__)
 
-    def __add__(self,other):
-        return self._concat(other, color_class=self.__class__)
-
-
 
     
 
