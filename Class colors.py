@@ -71,7 +71,6 @@ def main():
         GreenFileReader("text_1.txt"),
         BlueFileReader("text_2.txt"),
         RedFileReader("text_3.txt"),
-        WhiteFileReader("text_4.txt")
     ]
 
     for reader in readers:
