@@ -26,7 +26,7 @@ class MainReader:
             return
         with open(self.file_name) as file:
             for line in file:
-                yield line.strip()
+                yield line
 
     def play(self):
         for line in self.line_generator():
