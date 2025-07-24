@@ -32,10 +32,6 @@ class MainReader:
         for line in self.line_generator():
             print(line)
 
-    @text_color("white")
-    def line_generator(self):
-        return self.line_reader()
-
     def _concat(self, other):
         output_file = "concatenated.txt"
         with open(output_file, "w") as out:
