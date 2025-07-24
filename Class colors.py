@@ -5,8 +5,7 @@ def text_color(color: str):
     colors = {
         "green": "\033[0;32m",
         "blue": "\033[0;34m",
-        "red": "\033[0;31m",
-        "white": "\033[0;37m"         
+        "red": "\033[0;31m",         
     }
 
     def clr(func):
