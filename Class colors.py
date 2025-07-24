@@ -32,10 +32,10 @@ class MainReader:
         for line in self.line_generator():
             print(line)
 
-    def _concat(self, other):
+    def _concat(self, file_2):
         output_file = "concatenated.txt"
         with open(output_file, "w") as out:
-            for fname in (self.file_name, other.file_name):
+            for fname in (self.file_name, file_2.file_name):
                 if os.path.exists(fname):
                     with open(fname) as f:
                         out.writelines(f)
