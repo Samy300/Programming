@@ -36,17 +36,17 @@ class MainReader:
     def line_generator(self):
         return self.line_reader()
 
-    def _concat(self, other, color_class):
+    def _concat(self, other):
         output_file = "concatenated.txt"
         with open(output_file, "w") as out:
             for fname in (self.file_name, other.file_name):
                 if os.path.exists(fname):
                     with open(fname) as f:
                         out.writelines(f)
-        return color_class(output_file)
+        return self.__class__(output_file)
 
     def _add_(self, other):
-        return self.concat(other, color_class=self.__class_)
+        return self.concat(other)
 
 
 class GreenFileReader(MainReader):
